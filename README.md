@@ -5,19 +5,19 @@ Stay tuned for following examples:-
 
 1.Services
 
-  HTTP REST Service 
+  a) HTTP REST Service 
   
-  CoAP Service
+  b) CoAP Service (based on eclipse californium library)
   
-  InfluxDb Service
+  c) InfluxDb Service
   
-  WiFi Manager Service
+  d) WiFi Manager Service
   
 2.Bridging Examples
 
-   canbus-mqtt bridging
+   a) canbus-mqtt bridging
    
-   publishing sensehat data to cloud
+   b) publishing sensehat data to cloud
    
    
    
