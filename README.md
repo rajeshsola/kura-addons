@@ -11,13 +11,18 @@ Stay tuned for following examples:-
   
   c) InfluxDb Service
   
-  d) WiFi Manager Service
-  
-2.Bridging Examples
+  d) opc ua service based on eclipse milo (apart from OPC UA driver from market place)
+ 
+
+2.Bridging Examples, Integrations
 
    a) canbus-mqtt bridging
    
    b) publishing sensehat data to cloud
+   
+   c) modbus-cloud bridging
+   
+   d) Apache Kafka integrations
    
    
    
