@@ -1,7 +1,7 @@
 # kura-bundles
 Kura Bundles for Services and Demo applications
 
-Stay tuned for following examples:-
+Stay tuned for following services, examples:-
 
 1.Services
 
