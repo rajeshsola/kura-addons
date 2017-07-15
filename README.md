@@ -5,24 +5,28 @@ Stay tuned for following services, examples:-
 
 1.Services
 
-  a) HTTP REST Service 
-  
-  b) CoAP Service (based on eclipse californium library)
-  
-  c) InfluxDb Service
-  
-  d) opc ua service based on eclipse milo (apart from OPC UA driver from market place)
- 
+  a) InfluxDb Service, to store time series data locally for edge computing or on cloud for central analysis.
 
+  b) HTTP REST Service,   
+  
 2.Bridging Examples, Integrations
 
-   a) canbus-mqtt bridging
+   a) Scanning results from TI SensorTag and publishing to cloud service.
+
+   b) canbus-mqtt bridging
    
-   b) publishing sensehat data to cloud
+   c) Publishing SenseHAT readings to cloud service.
    
-   c) modbus-cloud bridging
    
-   d) Apache Kafka integrations
+Wish List in Future:-
+* Apache Kafka integrations
+* CoAP/LWM2M integrations
+* ModBus integrations 
+
+
+
+  
+ 
    
    
    
