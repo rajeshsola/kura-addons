@@ -25,7 +25,8 @@ public class MyInfluxDemo {
 		testInflux();
 	}
 	protected void deactivate(ComponentContext componentContext) {
-		//m_influxService.disbaleBatch();
+		if(m_influxDbClient.isBatchEnabled())
+			m_influxDbClient.disbaleBatch();
 		s_logger.info("Bundle " + APP_ID + " has stopped!");
 	}
 	public void setInfluxService(InfluxService influxService)
@@ -36,10 +37,6 @@ public class MyInfluxDemo {
 	{
 		m_influxService=null;
 	}
-	/*public MyInfluxDemo()
-	{
-		
-	}*/
 	public void testInflux()
 	{
 		if(m_influxDbClient.ping())
@@ -51,6 +48,9 @@ public class MyInfluxDemo {
 		m_influxDbClient.createDatabase("kuradb");
 		m_influxDbClient.setDatabaseName("kuradb");
 		m_influxDbClient.setRetentionPolicy("autogen");
+		
+		if(!m_influxDbClient.isBatchEnabled())
+			m_influxDbClient.enableBatch();
 		
 		m_influxDbClient.writeLine("weather", "temperature=25,humidity=72");
 		m_influxDbClient.writeLine("weather", "temperature=25,humidity=72", "city=pune");

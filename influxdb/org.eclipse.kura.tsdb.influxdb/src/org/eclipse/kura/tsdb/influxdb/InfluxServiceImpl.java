@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDBFactory;
+import org.influxdb.InfluxDB.ConsistencyLevel;
+import org.influxdb.InfluxDB.LogLevel;
 import org.influxdb.dto.Point;
 import org.influxdb.dto.Pong;
 import org.osgi.service.component.ComponentContext;
@@ -54,11 +56,11 @@ class InfluxDbClientImpl implements InfluxDbClient {
 	
 	public InfluxDbClientImpl()
 	{
+		//TODO: initialize with custom ip address,port based on kura configuration
 		this.influxDB = InfluxDBFactory.connect("http://localhost:8086");
 	}
 	public InfluxDbClientImpl(String host,int port)
 	{
-		//TODO: initialize with custom ip address,port based on kura configuration
 		this.influxDB = InfluxDBFactory.connect("http://"+host+":"+port);
 	}
 	@Override
@@ -75,12 +77,13 @@ class InfluxDbClientImpl implements InfluxDbClient {
 	}
 	@Override
 	public void setLogLevel() {
-		// TODO Auto-generated method stub
-		
+		//TODO:with params
+		this.influxDB.setLogLevel(LogLevel.NONE);
 	}
 	@Override
 	public void setConsistenctLevel(String level) {
-		// TODO Auto-generated method stub
+		//TODO:with params
+		this.influxDB.setConsistency(ConsistencyLevel.ONE);
 		
 	}
 	@Override
@@ -90,8 +93,7 @@ class InfluxDbClientImpl implements InfluxDbClient {
 	}
 	@Override
 	public void disbaleBatch() {
-		// TODO Auto-generated method stub
-		
+		influxDB.disableBatch();
 	}
 	@Override
 	public boolean isBatchEnabled() {		
@@ -127,11 +129,6 @@ class InfluxDbClientImpl implements InfluxDbClient {
 	}
 	@Override
 	public void dropDatabase() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void query() {
 		// TODO Auto-generated method stub
 		
 	}
