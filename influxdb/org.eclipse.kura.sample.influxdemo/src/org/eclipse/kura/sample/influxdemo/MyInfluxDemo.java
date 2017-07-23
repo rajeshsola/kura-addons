@@ -21,7 +21,7 @@ public class MyInfluxDemo {
 		s_logger.info("Bundle " + APP_ID + " has started!");
 
 		s_logger.debug(APP_ID + ": This is a debug message.");
-		m_influxDbClient = m_influxService.getNewInfluxDbClient("localhost", 8086);
+		m_influxDbClient = m_influxService.getInfluxDbClient("localhost", 8086);
 		testInflux();
 	}
 	protected void deactivate(ComponentContext componentContext) {

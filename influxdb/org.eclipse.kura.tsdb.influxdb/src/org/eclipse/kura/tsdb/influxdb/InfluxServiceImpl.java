@@ -35,7 +35,7 @@ public class InfluxServiceImpl implements InfluxService
 		s_logger.info("Bundle " + APP_ID + " has stopped!");
 	}
 
-	public InfluxDbClient getNewInfluxDbClient(String host,int port)
+	public InfluxDbClient getInfluxDbClient(String host,int port)
 	{
 		return new InfluxDbClientImpl(host,port);
 	}
