@@ -23,6 +23,11 @@ public interface InfluxDbClient {
 	public void writeLine(String measurement,String fields);
 	public void writeLine(String line);
 	public void writeLines(List<String> lines);
+	/*
+	* public void writeLine(String dbName,String rpName,String level,String measurement,String fields,String tags);
+	* public void writeLine(String dbName,String rpName,String level,String measurement,String fields);
+	* public void writeLine(String dbName,String rpName,String level,String line);
+	*/
 	
 	
 	public void writePoint(String dbName,String rpName,String level,KuraPoint point);
