@@ -2,6 +2,7 @@ package org.eclipse.kura.sample.influxdemo;
 
 import org.eclipse.kura.tsdb.influxdb.InfluxDbClient;
 import org.eclipse.kura.tsdb.influxdb.InfluxService;
+import org.eclipse.kura.tsdb.influxdb.KuraPoint;
 import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +26,7 @@ public class MyInfluxDemo {
 		testInflux();
 	}
 	protected void deactivate(ComponentContext componentContext) {
-		if(m_influxDbClient.isBatchEnabled())
-			m_influxDbClient.disbaleBatch();
+		m_influxDbClient.disbaleBatch();
 		s_logger.info("Bundle " + APP_ID + " has stopped!");
 	}
 	public void setInfluxService(InfluxService influxService)
@@ -45,26 +45,28 @@ public class MyInfluxDemo {
 			s_logger.error("InfluxDb server not reachable");
 		s_logger.info("InfluxDb version is:"+m_influxDbClient.getVersion());
 		
-		m_influxDbClient.createDatabase("kuradb");
+		//m_influxDbClient.createDatabase("kuradb");
 		m_influxDbClient.setDatabaseName("kuradb");
 		m_influxDbClient.setRetentionPolicy("autogen");
 		
-		if(!m_influxDbClient.isBatchEnabled())
-			m_influxDbClient.enableBatch();
-		
+		m_influxDbClient.enableBatch();
 		m_influxDbClient.writeLine("weather", "temperature=25,humidity=72");
 		m_influxDbClient.writeLine("weather", "temperature=25,humidity=72", "city=pune");
 		
-		m_influxDbClient.prepareLineProtocol("weather");
-		m_influxDbClient.addFieldEntry("temperature", 28);
-		m_influxDbClient.addFieldEntry("humidity", 70);
-		m_influxDbClient.writeLine();
+		KuraPoint p1=new KuraPoint();
+		p1.setMeasurement("weather");
+		p1.addFieldEntry("temperature", 28);
+		p1.addFieldEntry("humidity", 70);
+		s_logger.info("KuraPoint::"+p1.toString());
+		m_influxDbClient.writePoint(p1);
 		
-		m_influxDbClient.prepareLineProtocol("weather");
-		m_influxDbClient.addFieldEntry("temperature", 18);
-		m_influxDbClient.addFieldEntry("humidity", 75);
-		m_influxDbClient.addTagEntry("city", "mumabi");
-		m_influxDbClient.addTagEntry("sensor", "dht");
-		m_influxDbClient.writeLine();
+		KuraPoint p2=new KuraPoint();
+		p2.setMeasurement("weather");
+		p2.addFieldEntry("temperature", 18);
+		p2.addFieldEntry("humidity", 75);
+		p2.addTagEntry("city", "mumabi");
+		p2.addTagEntry("sensor", "dht");
+		s_logger.info("KuraPoint::"+p2.toString());
+		m_influxDbClient.writePoint(p2);
 	}
 }

@@ -1,39 +1,34 @@
 package org.eclipse.kura.tsdb.influxdb;
 
+import java.util.List;
+
 public interface InfluxDbClient {
 	public boolean ping();
 	public String getVersion();
 	public void setLogLevel();
 	public void setConsistenctLevel(String level);
 	
-	/*
-	 * TODO:
-	 * public void enableCompression();
-	 * public void disableCompression();
-	 * public boolean isCompressionEnabled();
-	 */
-		
+	public void enableCompression();
+	public void disableCompression();
+			
 	public void enableBatch();
 	public void disbaleBatch();
-	public boolean isBatchEnabled();
-	
+		
 	public void setDatabaseName(String db);
 	public void setRetentionPolicy(String rp);
 	public void createDatabase(String db);
-	public void dropDatabase();
-	
-	public void prepareLineProtocol(String measurement); //initialize new point
-	public void addFieldEntry(String name,Object value);
-	public void addTagEntry(String name,String value);
-	public void writeLine();
+	public void dropDatabase(String db);
 	
 	public void writeLine(String measurement,String fields,String tags);
 	public void writeLine(String measurement,String fields);
+	public void writeLine(String line);
+	public void writeLines(List<String> lines);
 	
-	//TODO: write methods with Point objects, batch mode
-	//public void preparePoint(); //initialize new point
-	//public void writePoint(String measurement);
-		
+	
+	public void writePoint(String dbName,String rpName,String level,KuraPoint point);
+	public void writePoint(KuraPoint point);
+	public void writePoints(List<KuraPoint> points);
+	
 	//TODO:query
 	//public void query();	
 }
