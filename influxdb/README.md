@@ -43,4 +43,10 @@ Use the supported methods according to data flow
 
 Disable batch mode in deactivate if activated earlier
 
+## Contributors
+
+Rajesh Sola
+
+Vibhor Khurana
+
 
