@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" name="org.eclipse.kura.sample.influxdemo">
+   <implementation class="org.eclipse.kura.sample.influxdemo.MyInfluxDemo"/>
+   <reference bind="setInfluxService" cardinality="1..1" interface="org.eclipse.kura.tsdb.influxdb.InfluxService" name="InfluxService" policy="static" unbind="unsetInfluxService"/>
+</scr:component>
