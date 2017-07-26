@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Canbus
+Bundle-SymbolicName: org.eclipse.kura.protocol.canbus
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.kura;version="1.2.1",
+ org.osgi.service.component,
+ org.slf4j;version="1.7.21"
+Bundle-ClassPath: .,
+ lib/libsocket-can-java.jar
+Service-Component: OSGI-INF/component.xml
+Export-Package: org.eclipse.kura.protocol.canbus;uses:="org.osgi.service.component"

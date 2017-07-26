@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
+    <OCD id="org.eclipse.kura.example.candemo.SocketCanDemo"
+        name="SocketCanDemo"
+        description="This is a sample metatype file for a simple configurable component">
+
+        <AD id="can.channel"
+            name="can.channel"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="vcan0"
+            description="Channel Name"/>
+
+ 		   <AD id="can.bitrate"
+            name="can.bitrate"
+            type="Integer"
+            cardinality="0"
+            required="true"
+            default="100000"
+            min="1"
+            description="Bit rate"/>
+    </OCD>
+
+    <Designate pid="org.eclipse.kura.example.candemo.SocketCanDemo">
+        <Object ocdref="org.eclipse.kura.example.candemo.SocketCanDemo"/>
+    </Designate>
+</MetaData>
