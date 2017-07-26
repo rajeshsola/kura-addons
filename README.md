@@ -7,7 +7,10 @@ Stay tuned for following services, examples:-
 
   a) InfluxDb Service, to store time series data locally for edge computing or on cloud for central analysis.
 
-  b) HTTP REST Service,   
+  b) HTTP REST Service
+  
+  c) SocketCAN Service (based on and entropia SocketCAN library and using org.eclipse.kura.protcol.can 
+                        of kura source code as reference)
   
 2.Bridging Examples, Integrations
 
