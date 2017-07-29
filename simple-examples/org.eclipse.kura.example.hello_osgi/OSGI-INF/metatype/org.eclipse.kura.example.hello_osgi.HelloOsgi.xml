@@ -1,0 +1,37 @@
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
+    <OCD id="org.eclipse.kura.example.hello_osgi.HelloOsgi"
+        name="HelloOsgi"
+        description="This is a sample metatype file for a simple configurable component">
+
+        <AD id="hello.topic"
+            name="Topic"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="hello"
+            description="Topic configuration parameter"/>
+
+        <AD id="hello.period"
+            name="Period"
+            type="Integer"
+            cardinality="0"
+            required="false"
+            default="5"
+            min="1"
+            max="10"
+            description="Period configuration parameter"/>
+
+        <AD id="hello.mode"
+            name="Mode"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="default"
+            description="Mode configuration parameter"/>
+    </OCD>
+
+    <Designate pid="org.eclipse.kura.example.hello_osgi.HelloOsgi">
+        <Object ocdref="org.eclipse.kura.example.hello_osgi.HelloOsgi"/>
+    </Designate>
+</MetaData>
+
