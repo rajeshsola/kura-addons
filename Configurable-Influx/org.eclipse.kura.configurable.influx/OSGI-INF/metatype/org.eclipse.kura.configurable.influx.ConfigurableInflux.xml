@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
-    <OCD id="org.eclipse.kura.configurable.infux.ConfigurableInflux"
+    <OCD id="org.eclipse.kura.configurable.influx.ConfigurableInflux"
         name="InfluxDB Configuration"
         description="This is a sample metatype file for a simple configurable component">
 
@@ -17,7 +17,7 @@
             type="String"
             cardinality="0"
             required="true"
-            default="127.0.0.1"
+            default="localhost"
             description="Host Address for InfluxDb"/>
 
         <AD id="param.port"
@@ -25,7 +25,7 @@
             type="Integer"
             cardinality="0"
             required="true"
-            default="1883"
+            default="8086"
             description="Port Address for InfluxDb"/>
 
         <AD id="param.username"
@@ -59,6 +59,7 @@
             required="true"
             default="test"
             description="Measurement Name"/>
+            
        	<AD id="param.retentionPolicy"
             name="retenstionPolicy"
             type="String"
@@ -69,7 +70,7 @@
             
     </OCD>
 
-    <Designate pid="org.eclipse.kura.configurable.infux.ConfigurableInflux">
-        <Object ocdref="org.eclipse.kura.configurable.infux.ConfigurableInflux"/>
+    <Designate pid="org.eclipse.kura.configurable.influx.ConfigurableInflux">
+        <Object ocdref="org.eclipse.kura.configurable.influx.ConfigurableInflux"/>
     </Designate>
 </MetaData>

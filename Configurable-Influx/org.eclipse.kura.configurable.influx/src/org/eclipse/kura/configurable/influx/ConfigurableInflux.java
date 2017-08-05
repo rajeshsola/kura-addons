@@ -26,9 +26,6 @@ public class ConfigurableInflux implements ConfigurableComponent {
 	private Boolean InfluxEnabled;
 	private int HostPort;
 	
-	
-	
-	
 	private Map<String, Object> properties;
 	
 	protected void activate(ComponentContext componentContext) {
