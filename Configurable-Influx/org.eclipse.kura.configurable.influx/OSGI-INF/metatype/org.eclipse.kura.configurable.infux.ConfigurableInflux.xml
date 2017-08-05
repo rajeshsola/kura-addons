@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
+    <OCD id="org.eclipse.kura.configurable.infux.ConfigurableInflux"
+        name="InfluxDB Configuration"
+        description="This is a sample metatype file for a simple configurable component">
+
+		<AD id="param.Enable"
+            name="Enable"
+            type="Boolean"
+            cardinality="0"
+            required="true"
+            default="false"
+            description="Enable Influx Post"/>
+
+        <AD id="param.hostAddr"
+            name="hostAddr"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="127.0.0.1"
+            description="Host Address for InfluxDb"/>
+
+        <AD id="param.port"
+            name="port"
+            type="Integer"
+            cardinality="0"
+            required="true"
+            default="1883"
+            description="Port Address for InfluxDb"/>
+
+        <AD id="param.username"
+            name="username"
+            type="String"
+            cardinality="0"
+            required="false"
+            default="root"
+            description="Username"/>
+            
+        <AD id="param.password"
+            name="password"
+            type="String"
+            cardinality="0"
+            required="false"
+            default="root"
+            description="Password"/>
+		
+		<AD id="param.dbName"
+            name="dbName"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="testDb"
+            description="Database Name"/>
+       
+       	<AD id="param.measurementName"
+            name="measurementName"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="test"
+            description="Measurement Name"/>
+       	<AD id="param.retentionPolicy"
+            name="retenstionPolicy"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="autogen"
+            description="Retention Policy"/>
+            
+    </OCD>
+
+    <Designate pid="org.eclipse.kura.configurable.infux.ConfigurableInflux">
+        <Object ocdref="org.eclipse.kura.configurable.infux.ConfigurableInflux"/>
+    </Designate>
+</MetaData>
