@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Influxdb Service Bundle
+Bundle-SymbolicName: org.eclipse.kura.tsdb.influxdb
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.kura.tsdb.influxdb
+Service-Component: OSGI-INF/component.xml
+Bundle-ClassPath: .,
+ lib/influxdb-java-2.7-jar-with-dependencies.jar
+Import-Package: org.osgi.service.component;version="1.2.2",
+ org.slf4j;version="1.7.21"
